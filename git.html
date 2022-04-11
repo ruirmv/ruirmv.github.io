@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+</head>
+<body>
+    <div class="main">
+        <h1>Git and GitHub</h1>
+
+        <h2>Making a commit</h2>
+        <h3>How to write a good commit message?</h3>
+        <ol class="list">
+            <li>Use the imperative mood in the subject line. The subject line should complete the sentence: 
+                if applied, this commit will <span class="variable">subject_line</span>
+            </li>
+            <li>Separate the subject line from the body with a blank line</li>
+            <li>Limit the subject line to arround 50 characters</li>
+            <li>Capitalize the subject line</li>
+            <li>Do not end the subject line with a period</li>
+            <li>Wrap the body at around 72 characters</li>
+            <li>Use the body to explain what and why a change was made instead of how</li>
+        </ol>
+        <h3>Example</h3>
+        <code class="block">
+            <ol>
+                <li>Implement auto login for new signups</li>
+                <li><br></li>
+                <li>- Added password verification</li>
+                <li><br></li>
+                <li>Resolves: #231</li>
+            </ol>
+        </code>
+
+        <h2>Making a pull request</h2>
+        <h3>Before you make a pull request...</h3>
+        <ul class="list">
+            <li>Format the code: <code class="inline">make format</code></li>
+            <li>Lint the code: <code class="inline">make lint</code></li>
+            <li>Run the test unit: <code class="inline">make test-unit</code></li>
+            <li>Check the definition of delivery (use <strong>checklist</strong>)</li>
+        </ul>
+
+        <h2>Keep feature branch up to date with master</h2>
+        <code class="block">
+            <ol>
+                <li>git checkout master</li>
+                <li>git pull</li>
+                <li>git checkout -</li>
+                <li>git rebase master</li>
+            </ol>
+        </code>
+
+    </div>
+</body>
+</html>
