@@ -78,7 +78,7 @@ code.inline {
     font-style: italic;
 }
 
-li, ul li {
+li {
     margin: 5px;
     margin-left: 20px;
     font-size: 16px;
