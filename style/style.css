@@ -85,3 +85,8 @@ li, ul li {
     line-height: 24px;
     font-style: normal;
 }
+
+a {
+    color: rgb(26, 115, 232);
+    text-decoration-line: none;
+}
