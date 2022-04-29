@@ -29,7 +29,19 @@
         <ul class="list">
             <li>pyenv install -v <span class="variable">version</span></li>
         </ul>
+
+        <ol class="list">
+            <li># set local version, replace with global for global version</li>
+        </ol>
+        <ul class="list">
+            <li>pyenv local <span class="variable">version</span></li>
+        </ul>
     </code>
+
+    <h4>Resources</h4>
+    <ul>
+        <li><a href="https://realpython.com/intro-to-pyenv/">How to use pyenv? Installation guide and commands.</a></li>
+    </ul>
 
 
     <h2>Virtual Environments</h2>
@@ -49,6 +61,20 @@
     <code class="block">
         <ol class="list">
             <li>pip show <span class="variable">package</span></li>
+        </ol>
+    </code>
+
+    <h4>Checking instaled packages</h4>
+    <code class="block">
+        <ol class="list">
+            <li>pip list</li>
+        </ol>
+    </code>
+
+    <h4>Get requirements.txt</h4>
+    <code class="block">
+        <ol class="list">
+            <li>pip freeze --local > requirements.txt</li>
         </ol>
     </code>
 

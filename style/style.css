@@ -8,18 +8,6 @@ body {
     margin: 0;
 }
 
-h1, h2, h3, h4 {
-    font-family: "Google Sans";
-    font-weight: 400;
-    margin: 0 52px 5px 0;
-    padding: 40px 0 0 40px;
-}
-
-p {
-    margin: 16px 40px 16px 40px;
-    line-height: 24px;
-}
-
 main {
     background-color: white;
     max-width: 936px;
@@ -29,6 +17,24 @@ main {
     border-radius: 2px;
     padding-bottom: 50px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Google Sans";
+    font-weight: 400;
+    margin: 0 52px 5px 0;
+    padding: 40px 0 0 40px;
+}
+
+h3, h4 {
+    margin: 32px -40px 16px 40px;
+    padding: 0px;
+    padding-right: 40px;
+}
+
+p {
+    margin: 16px 40px 16px 40px;
+    line-height: 1.5;
 }
 
 .comment {
@@ -41,48 +47,30 @@ main {
     width: 100%;
 }
 
-strong.comment {
+.comment strong {
     font-weight: 700;
 } 
 
-code.block {
-    display: block;
+code {
     background-color: rgb(241, 243, 244);
     color: rgb(55, 71, 79);
     font-family: "Roboto Mono", monospace;
+    font-size: 14.4px;
+}
+
+code.block {
+    display: block;
     margin: 0 40px 0 40px;
     padding: 20px 10px 20px 40px;
-    line-height: 0.7;
-    font-size: 14px;
+    line-height: 1.5;
     overflow: auto;
-    white-space: nowrap;
+    white-space: pre;
 }
 
-code.block ul, code.block ol {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-}
-
-code.block li {
-    padding-left: 1em;
-    text-indent: -1em;
-    margin-bottom: 15px;
-    margin-left: 0px;
-    font-size: 14px;
-}
-
-code.block li:before {
-    content: "$";
-    color: rgb(189, 193, 198);
-    padding-right: 8px;
-}
-
-code.block ol li:before{
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-    content: none;
+code.inline {
+    margin: 5px;
+    margin-right: 0;
+    padding: 1px 4px;
 }
 
 .variable {
@@ -90,26 +78,10 @@ code.block ol li:before{
     font-style: italic;
 }
 
-.list li, ul li {
+li, ul li {
     margin: 5px;
     margin-left: 20px;
     font-size: 16px;
     line-height: 24px;
     font-style: normal;
-}
-
-h3, h4 {
-    margin: 32px -40px 16px 40px;
-    padding: 0px;
-    padding-right: 40px;
-}
-
-code.inline {
-    background-color: rgb(241, 243, 244);
-    font-family: "Roboto Mono", monospace;
-    font-size: 14.4px;
-    color: rgb(55, 71, 79);
-    margin: 5px;
-    margin-right: 0;
-    padding: 1px 4px;
 }
