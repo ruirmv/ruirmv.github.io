@@ -19,14 +19,14 @@ main {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
     font-family: "Google Sans";
     font-weight: 400;
     margin: 0 52px 5px 0;
     padding: 40px 0 0 40px;
 }
 
-h3, h4 {
+h3, h4, h5 {
     margin: 32px -40px 16px 40px;
     padding: 0px;
     padding-right: 40px;
