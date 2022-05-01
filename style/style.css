@@ -32,6 +32,10 @@ h3, h4, h5 {
     padding-right: 40px;
 }
 
+h4, h5 {
+    font-weight: 600;
+}
+
 p {
     margin: 16px 40px 16px 40px;
     line-height: 1.5;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python</title>
-    <base href="file:///C:/Users/ruirm/Desktop/ruirmv.github.io/">
+    <base href="/">
     <link rel="stylesheet" href="style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +17,9 @@
 <h2>Best Practices</h2>
 
 <!-- Type Hints -->
+<h3>Typing</h3>
 
-<h3>Use <a href="https://docs.python.org/3/library/typing.html">type hints</a></h3>
+<h4>Use <a href="https://docs.python.org/3/library/typing.html">type hints</a></h4>
 <p>We should use type hints whenever possible to add clarity to the code and avoid mistakes with a linter.</p>
 
 <!-- Imports -->
@@ -49,25 +50,29 @@ from canteen.sessions import get_session
     <li>Local source tree imports</li>
 </ol>
 
+<h4>All exports from a module must be done from the __init__ file</h4>
+<p>Public exports belong in the <code class="inline">__init__</code> file.</p>
+
 <!-- Classes and Dataclasses -->
 
-<h3>Define default values in dictionaries with <code class="inline">.get()</code> and <code class="inline">.setdefault()</code></h3>
+<h3>Classes and Data</h3>
+<h4>Define default values in dictionaries with <code class="inline">.get()</code> and <code class="inline">.setdefault()</code></h4>
 
 
-<h3>Use <a href="https://docs.python.org/3/library/dataclasses.html#dataclasses.Field">data classes</a></h3>
+<h4>Use <a href="https://docs.python.org/3/library/dataclasses.html#dataclasses.Field">data classes</a></h4>
 <ul>
     <li>require less code since they provide methods like <code class="inline">__repr__</code> and <code class="inline">__eq__</code> out of the box</li>
     <li>less error prone since they require type hinting</li>
     <li>can easily be converted to a dictionary or tuple</li>
 </ul>
 
-<h3>Class constants</h3>
+<h4>Class constants</h4>
 <code class="block">class Constants:
     VALUE = "value"
 </code>
 
-<h3>Avoid getter and setter methods</h3>
-<h4>Do</h4>
+<h4>Avoid getter and setter methods</h4>
+<h5>Do</h5>
 <code class="block">class Person:
     def __init__(self, age):
         self._age = age
@@ -85,11 +90,9 @@ from canteen.sessions import get_session
 
     person.age = 42
 </code>
-<h4>Don't</h4>
+<h5>Don't</h5>
 <code class="block">person.set_age(42)
 </code>
-
-<h3>try: ... except: ... statements is a great practice</h3>
 
 <!-- Styling -->
 
@@ -147,6 +150,19 @@ if sign.color = 'red' and sign.sides = 8:
 
 <h4>Use <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> to automatically generate documentation in HTML</h4>
 
+<h3>Working with time</h3>
+<h4>The package <strong>zoneinfo</strong> is the prefered way to get timezones</h4>
+
+<h4>Use UTC by default</h4>
+<code class="block">import zoneinfo
+
+dt = datetime.datetime.utcnow()
+dt.astimezone("Europe/Lisbon")
+dt = datetime.datetime(2022, 12, 1, tzinfo=zoneinfo.ZoneInfo("Europe/Lisbon"))
+</code>
+
+<h3>General</h3>
+<h4>try: ... except: ... statements is a great practice</h4>
 </main>
 </body>
 </html>
