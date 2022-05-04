@@ -63,7 +63,7 @@ def index(request: HttpRequest):
 <p>Models are basically the database layout with additional metadata.</p>
 <p>It contains the fields and behaviors of the data it stores.</p>
 <p>See the <a href="https://docs.djangoproject.com/en/4.0/ref/models/instances/#django.db.models.Model">documentation</a> for a complete information about models.</p>
-<p>Each model has a number of class variables, each representing a database field.</p>
+<p>Each model has a number of class variables, each representing a database field. Relationships between tables are also defined here.</p>
 <code class="block">from django.db import models
 
 class Model(models.Model)

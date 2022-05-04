@@ -17,6 +17,9 @@ main {
     border-radius: 2px;
     padding-bottom: 50px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
