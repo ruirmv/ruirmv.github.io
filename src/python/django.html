@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django</title>
-    <base href="file:///C:/Users/ruirm/Desktop/ruirmv.github.io/">
+    <base href="/">
     <link rel="stylesheet" href="style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +30,8 @@
     <li>Run the server - <code class="inline">python manage.py runserver [ip:][port]</code>. The server should not be used in production.</li>
     <li>Creating an app - <code class="inline">python manage.py startapp <span class="variable">app_name</span></code>. A project might contain
     multiple apps. Additionally, create a <code class="inline">urls.py</code> inside the app, to map between URLs and views.</li>
+    <li>Register the app in <code class="inline">settings.INSTALLED_APPS</code>.</li>
+    <li>Link the app URLs with the project URLs.</li>
 </ol>
 
 <h2>Admin</h2>
@@ -59,17 +61,36 @@ def index(request: HttpRequest):
     return HttpResponse("Hello")
 </code>
 
+<div class="comment"><strong>Note:</strong> views are responsible for sending an <code class="inline">HttpResponse</code>
+or raise an <code class="inline">Http</code> exception.</div>
+
+<h3><a href="">Templates</a></h3>
+<p>The first step to create a template in an app is to create a folder named <code class="inline">templates</code>
+inside the app and inside of it another folder with the same name as the app 
+<code class="inline"><span class="variable">app_name</span>/templates/<span class="variable">app_name</span></code>.</p>
+
+<!-- Models-->
+
 <h2>Models</h2>
+
 <p>Models are basically the database layout with additional metadata.</p>
 <p>It contains the fields and behaviors of the data it stores.</p>
 <p>See the <a href="https://docs.djangoproject.com/en/4.0/ref/models/instances/#django.db.models.Model">documentation</a> for a complete information about models.</p>
-<p>Each model has a number of class variables, each representing a database field. Relationships between tables are also defined here.</p>
+<p>Each model has a number of class attributes, each representing a database field. Relationships between tables are also defined here.</p>
 <code class="block">from django.db import models
 
 class Model(models.Model)
     field = models.Field(...)
 </code>
-<p>For more information about fields check the <a href="https://docs.djangoproject.com/en/4.0/ref/models/fields/#django.db.models.Field">reference</a>.</p>
+<p>For more information about <strong>fields</strong>, such as field types, options and relationships check the <a href="https://docs.djangoproject.com/en/4.0/ref/models/fields/#django.db.models.Field">reference</a>.</p>
+
+<h3>Creating or changing a model</h3>
+<ol>
+    <li>Change/create the models.</li>
+    <li>Run <code class="inline">python manage.py makemigrations</code> to create migrations for those changes.</li>
+    <li>Run <code class="inline">python manage.py migrate</code> to apply those changes to the database.</li>
+</ol>
+
 </main>
 </body>
 </html>
