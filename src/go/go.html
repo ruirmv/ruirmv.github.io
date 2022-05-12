@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Go</title>
-    <base href="/">
+    <base href="file:///C:/Users/ruirm/Desktop/ruirmv.github.io/">
     <link rel="stylesheet" href="style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,14 +13,161 @@
 <body>
 <main>
 <h1>Go</h1>
-<h2>Workflow</h2>
+<h2>Commands</h2>
 <ol>
-    <li>Start a project with <code class="inline">go mod init <span class="variable">domain</span></code>. 
+    <li><code class="inline">go mod init <span class="variable">domain</span></code> - start a project. 
     A file is automatically created to register code dependencies.</li>
-    <li>Create a <code class="inline">main.go</code> file as the entry point to the application.</li>
-    <li>Execute <code class="inline">go mod tidy</code> to get the necessary dependencies.</li>
-    <li>Execute <code class="inline">go run .</code> to run the application.</li>
+    <li><code class="inline">go mod tidy</code> - get the necessary dependencies.</li>
+    <li><code class="inline">go run .</code> - run the application.</li>
 </ol>
+
+<div class="comment"><strong>Note:</strong><code class="inline">main.go</code> is the entry point to the application.</div>
+
+<h2>Types</h2>
+
+<h3>Methods</h3>
+<p>Even thought Go doesn't have classes you can define methods on types.</p>
+<p>A method is a function with a receiver argument, so they can always be replaced with a regular function
+    with no change in functionality.
+</p>
+
+
+<div class="comment"><strong>Note:</strong> You can only declare a method on a receiver whose type is defined in the same package as the method.</div>
+<h4>Pointer receivers</h4>
+<p>Methods with pointer receivers can modify the value to which the receiver points. They can be called 
+    either on the pointer or on the value directly.
+</p>
+<p>There are two main reasons to use pointer receivers:</p>
+<ol>
+    <li>So that the method can modify the value that its receiver points to.</li>
+    <li>To avoid copying the value on each method call.</li>
+</ol>
+
+<code class="block">type Point struct {
+    X, Y float64
+}
+
+// <strong>value receiver</strong>, receives a copy of the object
+func (p Point) Sum() float64 {
+    return p.X + p.Y
+}
+
+// <strong>pointer receiver</strong>, receives a pointer to the object
+func (p *Point) Scale(f float64) {
+    p.X *= f
+    p.Y *= f
+}
+
+func main() {
+    p := Point{1, 2}
+    p.Scale(10)  // Point{10, 20}
+    fmt.Println(p.Sum())  // 30
+}
+</code>
+
+<h3>Interfaces</h3>
+<p>An interface type is defined as a set of method signatures. A value of interface type can hold
+    any value that implements those methods.
+</p>
+<p>A type implements an interface by implementing its methods. There is no explicit declaration of interfacing.</p>
+<code class="block">type I interface {
+    M() string
+}
+
+func main() {
+    var i I
+    i = Dog{"Bob"}
+
+    fmt.Println(i.M()) // Bob
+}
+
+type Dog struct {
+    name string
+}
+
+func (d Dog) M() string {
+    return d.name
+}
+</code>
+
+<h4>Empty interface</h4>
+<p>The interface type that specifies zero methods is the empty interface <code class="inline">interface{}</code>.</p>
+<p>An empty interface can hold values of any type.</p>
+
+<h4>Stringer</h4>
+<p>A stringer is a type that can describe itself as a string. So it should implement
+    the <code class="inline">String() string</code> method, as defined in <code class="inline">fmt.Stringer</code>.
+</p>
+
+<h4>Errors</h4>
+<p>The <code class="inline">error</code> type is also a built-in interface.</p>
+<p>In this case it should implement the <code class="inline">Error() string</code> method, as defined in <code class="inline">fmt.Error</code>.
+</p>
+<p>A nil <code class="inline">error</code> denotes success and a non-nil <code class="inline">error</code> failure.</p>
+
+<h3>Type assertions</h3>
+<p>To check if <code class="inline">i</code> is of type <code class="inline">T</code>, use the following code snippet.</p>
+<code class="block">t, ok := i.(T)</code>
+<p>If it is, then <code class="inline">ok = True</code> and <code class="inline">t</code> its underlying value.</p>
+<p>If it's not, then <code class="inline">ok = False</code> and <code class="inline">t</code> will have type <code class="inline">T</code>'s zero value.</p>
+
+<h2>Testing</h2>
+<p>You should always use table tests in Go. Here are some code snippets:</p>
+<code class="block">func Test<span class="variable">Method</span>(t *testing) {
+    for tt := range []struct {
+        name    string
+        // insert the data the function needs here, usually with the name of the arguments
+        want    string
+        wantErr string
+    }{
+        name: "",
+     },
+} {
+    t.Run(tt.name, func(t *testing.T) {
+        // insert code to run here
+    })
+}
+</code>
+
+<p>In case the function returns both a value and an error use:</p>
+<code class="block">if err !=  nil {
+    if tt.WantErr == "" {
+        t.Fatalt("no error was expected but got: %s", err)
+    }
+    if !strings.Contains(err.Error(), tt.WantErr) {
+        t.Fatalt("expected error to contain %s but got: %s", err)
+    }
+} else if tt.WantErr != "" {
+    t.Fatalf("expected error: %s", tt.WantErr)
+} else if diff := cmp.Diff(tt.want, got); diff != "" {
+    t.Errort("result was not as expected: %s, diff")
+}
+</code>
+
+<p>In case the function returns both only an error use:</p>
+<code class="block">if err !=  nil {
+    if tt.WantErr == "" {
+        t.Fatalt("no error was expected but got: %s", err)
+    }
+    if !strings.Contains(err.Error(), tt.WantErr) {
+        t.Fatalt("expected error to contain %s but got: %s", err)
+    }
+} else if tt.WantErr != "" {
+    t.Fatalf("expected error: %s", tt.WantErr)
+}
+</code>
+
+<p>In case the function returns only a value use:</p>
+<code class="block">if diff := cmp.Diff(tt.want, got); diff != "" {
+    t.Errort("result was not as expected: %s, diff")
+}
+</code>
+
+<h2>Resources
+    <li><a href="https://go.dev/doc/tutorial/">Tutorials</a></li>
+    <li><a href="https://go.dev/doc/tutorial/getting-started">Introduction to Go</a></li>
+    <li><a href="https://go.dev/tour/welcome/1">Tour of Go - very complete tutorial (haven't seen Concurrency).</a></li>
+</h2>
 </main>
 </body>
 </html>

@@ -28,7 +28,7 @@
     <li>Use the body to explain what and why a change was made instead of how</li>
 </ol>
 <h3>Example</h3>
-<code class="block">Implement auto login for new signups
+<code class="block">T1728 | Login | Implement auto login for new signups
 
 - Added password verification
 
@@ -41,7 +41,6 @@ Resolves: #231
     <li>Format the code: <code class="inline">make format</code></li>
     <li>Lint the code: <code class="inline">make lint</code></li>
     <li>Run the test unit: <code class="inline">make test-unit</code></li>
-    <li>Check the definition of delivery (use <strong>checklist</strong>)</li>
 </ul>
 
 <h3>Title</h3>
@@ -55,10 +54,21 @@ git checkout -
 git rebase master
 </code>
 
-<h2>Squash the last <span class="variable">X<span> commits together</h2>
-<code class="block">git reset --soft HEAD~<span class="variable">X<span>
+<h2>Pushing changes to remote</h2>
+<code class="block">git push origin HEAD
+</code>
+
+<h2>Squash the last <span class="variable">X</span> commits together</h2>
+<code class="block">git reset --soft HEAD~<span class="variable">X</span>
 git commit
-<code>
+</code>
+
+<h2>Forcing commits to remote</h2>
+<p>There are two options:</p>
+<ul>
+    <li><code class="inline">git push --force</code>, which overrides all commits on remote.</li>
+    <li><code class="inline">git push --force-with-lease</code>, doesn't overrides commits by another person.</li>
+</ul>
 
 </main>
 </body>
