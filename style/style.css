@@ -82,6 +82,7 @@ code.inline {
 .variable {
     color: rgb(208, 24, 132);
     font-weight: 700;
+    font-style: normal;
 }
 
 li {
