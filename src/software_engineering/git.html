@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,68 +9,79 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
 </head>
-<body>
-<main>
-<h1>Git and GitHub</h1>
 
-<h2>Making a commit</h2>
-<h3>How to write a good commit message?</h3>
-<ol>
-    <li>Use the imperative mood in the subject line. The subject line should complete the sentence: 
-        if applied, this commit will <span class="variable">subject_line</span>
-    </li>
-    <li>Separate the subject line from the body with a blank line</li>
-    <li>Limit the subject line to arround 50 characters</li>
-    <li>Capitalize the subject line</li>
-    <li>Do not end the subject line with a period</li>
-    <li>Wrap the body at around 72 characters</li>
-    <li>Use the body to explain what and why a change was made instead of how</li>
-</ol>
-<h3>Example</h3>
-<code class="block">T1728 | Login | Implement auto login for new signups
+<body>
+    <main>
+        <h1>Git and GitHub</h1>
+
+        <h2>Making a commit</h2>
+        <h3>How to write a good commit message?</h3>
+        <ol>
+            <li>Use the imperative mood in the subject line. The subject line should complete the sentence:
+                if applied, this commit will <span class="variable">subject_line</span>
+            </li>
+            <li>Separate the subject line from the body with a blank line</li>
+            <li>Limit the subject line to arround 50 characters</li>
+            <li>Capitalize the subject line</li>
+            <li>Do not end the subject line with a period</li>
+            <li>Wrap the body at around 72 characters</li>
+            <li>Use the body to explain what and why a change was made instead of how</li>
+        </ol>
+        <h3>Example</h3>
+        <code class="block">T1728 | Login | Implement auto login for new signups
 
 - Added password verification
 
 Resolves: #231
 </code>
 
-<h2>Making a pull request</h2>
-<h3>Before you make a pull request...</h3>
-<ul>
-    <li>Format the code: <code class="inline">make format</code></li>
-    <li>Lint the code: <code class="inline">make lint</code></li>
-    <li>Run the test unit: <code class="inline">make test-unit</code></li>
-</ul>
+        <h2>Making a pull request</h2>
+        <h3>Before you make a pull request...</h3>
+        <ul>
+            <li>Format the code: <code class="inline">make format</code></li>
+            <li>Lint the code: <code class="inline">make lint</code></li>
+            <li>Run the test unit: <code class="inline">make test-unit</code></li>
+        </ul>
 
-<h3>Title</h3>
-<p>The title of the pull request should be useful to search for it in the future. 
-    Follow the format <code class="inline"><span class="variable">name_of_the_issue</span> | <span class="variable">general_topic</span> | <span class="variable">specific_topic</span></code>.</p>    
+        <h3>Title</h3>
+        <p>The title of the pull request should be useful to search for it in the future.
+            Follow the format <code
+                class="inline"><span class="variable">name_of_the_issue</span> | <span class="variable">general_topic</span> | <span class="variable">specific_topic</span></code>.
+        </p>
 
-<h2>Keep feature branch up to date with master</h2>
-<code class="block">git checkout master
+        <h2>Keep feature branch up to date with master</h2>
+        <code class="block">git checkout master
 git pull
 git checkout -
 git rebase master
 </code>
 
-<h2>Pushing changes to remote</h2>
-<code class="block">git push origin HEAD
+        <h2>Pushing changes to remote</h2>
+        <code class="block">git push origin HEAD
 </code>
 
-<h2>Squash the last <span class="variable">X</span> commits together</h2>
-<code class="block">git reset --soft HEAD~<span class="variable">X</span>
+        <h2>Squash the last <span class="variable">X</span> commits together</h2>
+        <code class="block">git reset --soft HEAD~<span class="variable">X</span>
 git commit
 </code>
 
-<h2>Forcing commits to remote</h2>
-<p>There are two options:</p>
-<ul>
-    <li><code class="inline">git push --force</code>, which overrides all commits on remote.</li>
-    <li><code class="inline">git push --force-with-lease</code>, doesn't overrides commits by another person.</li>
-</ul>
+        <h2>Forcing commits to remote</h2>
+        <p>There are two options:</p>
+        <ul>
+            <li><code class="inline">git push --force</code>, which overrides all commits on remote.</li>
+            <li><code class="inline">git push --force-with-lease</code>, doesn't overrides commits by another person.
+            </li>
+        </ul>
 
-</main>
+        <h2>Forcing local branch state to follow remote</h2>
+        <code class="block">git fetch --all  // getting most recent changes on all branches
+git reset --hard origin/<span class="variable">branch_name</span>
+</code>
+
+    </main>
 </body>
+
 </html>
