@@ -1,79 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python</title>
-    <base href="/">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://ruirmv.github.io/style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
 </head>
+
 <body>
-<main>
-<h1>Python</h1>
+    <main>
+        <h1>Python</h1>
 
-<h2>Best Practices</h2>
+        <h2>Best Practices</h2>
 
-<!-- Type Hints -->
-<h3>Typing</h3>
+        <!-- Type Hints -->
+        <h3>Typing</h3>
 
-<h4>Use <a href="https://docs.python.org/3/library/typing.html">type hints</a></h4>
-<p>We should use type hints whenever possible to add clarity to the code and avoid mistakes with a linter.</p>
+        <h4>Use <a href="https://docs.python.org/3/library/typing.html">type hints</a></h4>
+        <p>We should use type hints whenever possible to add clarity to the code and avoid mistakes with a linter.</p>
 
-<!-- Imports -->
+        <!-- Imports -->
 
-<h3>Imports</h3>
-<h4>Import entire modules instead of individual symbols within a module</h4>
-<ul>
-    <li>Reduces cluter</li>
-    <li>Avoids circular imports</li>
-</ul>
-<h5>Do</h5>
-<code class="block">import canteen
+        <h3>Imports</h3>
+        <h4>Import entire modules instead of individual symbols within a module</h4>
+        <ul>
+            <li>Reduces cluter</li>
+            <li>Avoids circular imports</li>
+        </ul>
+        <h5>Do</h5>
+        <code class="block">import canteen
 import canteen.sessions
 from canteen import sessions
 </code>
-<h5>Don't</h5>
-<code class="block">from canteen import get_user
+        <h5>Don't</h5>
+        <code class="block">from canteen import get_user
 from canteen.sessions import get_session
 </code>
 
-<h4>Imports withing a script cannot be relative</h4>
-<p>Always use absolute imports within a script.</p>
+        <h4>Imports withing a script cannot be relative</h4>
+        <p>Always use absolute imports within a script.</p>
 
-<h4>The imports should be in three sections, each separated by a blank line</h4>
-<ol>
-    <li>System imports</li>
-    <li>Third-party imports</li>
-    <li>Local source tree imports</li>
-</ol>
+        <h4>The imports should be in three sections, each separated by a blank line</h4>
+        <ol>
+            <li>System imports</li>
+            <li>Third-party imports</li>
+            <li>Local source tree imports</li>
+        </ol>
 
-<h4>All exports from a module must be done from the __init__ file</h4>
-<p>Public exports belong in the <code class="inline">__init__</code> file.</p>
+        <h4>All exports from a module must be done from the __init__ file</h4>
+        <p>Public exports belong in the <code class="inline">__init__</code> file.</p>
 
-<!-- Classes and Dataclasses -->
+        <!-- Classes and Dataclasses -->
 
-<h3>Classes and Data</h3>
-<h4>Define default values in dictionaries with <code class="inline">.get()</code> and <code class="inline">.setdefault()</code></h4>
+        <h3>Classes and Data</h3>
+        <h4>Define default values in dictionaries with <code class="inline">.get()</code> and <code
+                class="inline">.setdefault()</code></h4>
 
 
-<h4>Use <a href="https://docs.python.org/3/library/dataclasses.html#dataclasses.Field">data classes</a></h4>
-<ul>
-    <li>require less code since they provide methods like <code class="inline">__repr__</code> and <code class="inline">__eq__</code> out of the box</li>
-    <li>less error prone since they require type hinting</li>
-    <li>can easily be converted to a dictionary or tuple</li>
-</ul>
+        <h4>Use <a href="https://docs.python.org/3/library/dataclasses.html#dataclasses.Field">data classes</a></h4>
+        <ul>
+            <li>require less code since they provide methods like <code class="inline">__repr__</code> and <code
+                    class="inline">__eq__</code> out of the box</li>
+            <li>less error prone since they require type hinting</li>
+            <li>can easily be converted to a dictionary or tuple</li>
+        </ul>
 
-<h4>Class constants</h4>
-<code class="block">class Constants:
+        <h4>Class constants</h4>
+        <code class="block">class Constants:
     VALUE = "value"
 </code>
 
-<h4>Avoid getter and setter methods</h4>
-<h5>Do</h5>
-<code class="block">class Person:
+        <h4>Avoid getter and setter methods</h4>
+        <h5>Do</h5>
+        <code class="block">class Person:
     def __init__(self, age):
         self._age = age
     
@@ -90,80 +94,86 @@ from canteen.sessions import get_session
 
     person.age = 42
 </code>
-<h5>Don't</h5>
-<code class="block">person.set_age(42)
+        <h5>Don't</h5>
+        <code class="block">person.set_age(42)
 </code>
 
-<!-- Styling -->
+        <!-- Styling -->
 
-<h3 id="styling">Styling</h3>
+        <h3 id="styling">Styling</h3>
 
-<h4>Don't use redundant names</h4>
-<p>An <code class="inline">Animal</code> class shouldn't have a method called <code class="inline">animal_to_string</code>
-but instead <code class="inline">to_string</code>.</p>
+        <h4>Don't use redundant names</h4>
+        <p>An <code class="inline">Animal</code> class shouldn't have a method called <code
+                class="inline">animal_to_string</code>
+            but instead <code class="inline">to_string</code>.</p>
 
-<h4>Style</h4>
-<ul>
-    <li>Follow PEP 8 when sensible</li>
-    <li>The naming should be representative of the purpose</li>
-    <li>Variables, functions, methods, packages and modules should be named like <code class="inline">lower_case_with_underscores</code></li>
-    <li>Classes and exceptions like <code class="inline">CapWords</code></li>
-    <li>Protected methods and internal functions like <code class="inline">_single_leading_underscore(self, ...)</code></li>
-    <li>Constants like <code class="inline">ALL_CAPS_WITH_UNDERSCORES</code></li>
-</ul>
+        <h4>Style</h4>
+        <ul>
+            <li>Follow PEP 8 when sensible</li>
+            <li>The naming should be representative of the purpose</li>
+            <li>Variables, functions, methods, packages and modules should be named like <code
+                    class="inline">lower_case_with_underscores</code></li>
+            <li>Classes and exceptions like <code class="inline">CapWords</code></li>
+            <li>Protected methods and internal functions like <code
+                    class="inline">_single_leading_underscore(self, ...)</code></li>
+            <li>Constants like <code class="inline">ALL_CAPS_WITH_UNDERSCORES</code></li>
+        </ul>
 
-<h4>Prefer code redability</h4>
-<h5>Do</h5>
-<code class="block">def is_stop_sign(sign):
+        <h4>Prefer code redability</h4>
+        <h5>Do</h5>
+        <code class="block">def is_stop_sign(sign):
     return sign.color = 'red' and sign.sides = 8
 </code>
-<h5>Don't</h5>
-<code class="block"># if the sign is a stop sign
+        <h5>Don't</h5>
+        <code class="block"># if the sign is a stop sign
 if sign.color = 'red' and sign.sides = 8:
     stop()
 </code>
 
-<h4>Use parenthesis for line continuations</h4>
-<p>Avoid lines with more than 80-100 characteres.</p>
-<code class="block">wiki = (
+        <h4>Use parenthesis for line continuations</h4>
+        <p>Avoid lines with more than 80-100 characteres.</p>
+        <code class="block">wiki = (
     "Here is a lot of text"
     "all in the same line"
 )
 </code>
 
-<!-- Documentation -->
+        <!-- Documentation -->
 
-<h3><a href="https://peps.python.org/pep-0257/">Documentation</a></h3>
-<p>Documentation should only be provided at the top level, to describe the intent behind a function or a class. If we need
-    to document something on a statement level, probably the code needs to be refactored.
-</p>
-<p>We should follow <a href="https://peps.python.org/pep-0257/">PEP 257</a>.</p>
-<p>Use one-line docstrings for obvious functions:</p>
-<code class="block">"""Returns the parameters of foo."""</code>
-<p>For more complex functions, multiline docstrings should include</p>
-<ul>
-    <li>Summary line</li>
-    <li>Use case, if appropriate</li>
-    <li>Args</li>
-    <li>Return type and semantics, unless <code class="inline">None</code> is returned</li>
-</ul>
+        <h3><a href="https://peps.python.org/pep-0257/">Documentation</a></h3>
+        <p>Documentation should only be provided at the top level, to describe the intent behind a function or a class.
+            If we need
+            to document something on a statement level, probably the code needs to be refactored.
+        </p>
+        <p>We should follow <a href="https://peps.python.org/pep-0257/">PEP 257</a>.</p>
+        <p>Use one-line docstrings for obvious functions:</p>
+        <code class="block">"""Returns the parameters of foo."""</code>
+        <p>For more complex functions, multiline docstrings should include</p>
+        <ul>
+            <li>Summary line</li>
+            <li>Use case, if appropriate</li>
+            <li>Args</li>
+            <li>Return type and semantics, unless <code class="inline">None</code> is returned</li>
+        </ul>
 
-<h4>Use <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> to automatically generate documentation in HTML</h4>
+        <h4>Use <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> to automatically generate documentation in
+            HTML</h4>
 
-<h3>Working with time</h3>
-<h4>The package <strong>zoneinfo</strong> is the prefered way to get timezones</h4>
+        <h3>Working with time</h3>
+        <h4>The package <strong>zoneinfo</strong> is the prefered way to get timezones</h4>
 
-<h4>Use UTC by default</h4>
-<code class="block">import zoneinfo
+        <h4>Use UTC by default</h4>
+        <code class="block">import zoneinfo
 
 dt = datetime.datetime.utcnow()
 dt.astimezone("Europe/Lisbon")
 dt = datetime.datetime(2022, 12, 1, tzinfo=zoneinfo.ZoneInfo("Europe/Lisbon"))
 </code>
 
-<h3>General</h3>
-<h4>try: ... except: ... statements is a great practice</h4>
-<h4>Avoid having multiple return types</h4>
-</main>
+        <h3>General</h3>
+        <h4>try: ... except: ... statements is a great practice</h4>
+        <h4>Avoid having multiple return types</h4>
+    </main>
 </body>
+
 </html>

@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Docker</title>
-    <base href="/">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://ruirmv.github.io/style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
 </head>
-<body>
-<main>
-<h1>Docker</h1>
-<p>Docker is a set of platform as a service products that use OS-level virtualization to deliver
-    software in packages called <strong>containers</strong>. With docker we bundle our application, including all of its runtime
-    dependencies into an <strong>image</strong> and share these images in a <a href="https://hub.docker.com">registry</a>.
-</p>
 
-<h2>Download an image</h2>
-<code class="block">docker pull <span class="variable">image</span>
+<body>
+    <main>
+        <h1>Docker</h1>
+        <p>Docker is a set of platform as a service products that use OS-level virtualization to deliver
+            software in packages called <strong>containers</strong>. With docker we bundle our application, including
+            all of its runtime
+            dependencies into an <strong>image</strong> and share these images in a <a
+                href="https://hub.docker.com">registry</a>.
+        </p>
+
+        <h2>Download an image</h2>
+        <code class="block">docker pull <span class="variable">image</span>
 docker pull [<span class="variable">registry</span>/][<span class="variable">namespace</span>/]&lt;<span class="variable">repository</span>&gt;[:<span class="variable">version</span>/]
 </code>
 
-<h2>Running an image</h2>
-<code class="block">docker run <span class="variable">image</span></code>
+        <h2>Running an image</h2>
+        <code class="block">docker run <span class="variable">image</span></code>
 
-<h2>Creating an image</h2>
-<p>To create an image we must creat a <code class="inline">Dockerfile</code> that describes it.</p>
-<code class="block"># our image has to be based on a base image which contains the dependencies we need 
+        <h2>Creating an image</h2>
+        <p>To create an image we must creat a <code class="inline">Dockerfile</code> that describes it.</p>
+        <code class="block"># our image has to be based on a base image which contains the dependencies we need 
 FROM <span class="variable">base image</span>
 # we can also copy files from our current directory to a location in the image 
 COPY <span class="variable">file</span> <span class="variable">location</span>
 # we can also execute commands in the image is created
 RUN <span class="variable">command</span>
 </code>
-<p>After this we need to <strong>build</strong> the actuall image.</p>
-<code class="block">docker build -t <span class="variable">image name</span> .
+        <p>After this we need to <strong>build</strong> the actuall image.</p>
+        <code class="block">docker build -t <span class="variable">image name</span> .
 </code>
-</main>
+    </main>
 </body>
+
 </html>
